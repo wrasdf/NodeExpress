@@ -2,17 +2,20 @@ doctype 5
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/common.css')
+    link(rel='stylesheet', href='/css/common.css')
   body
-    header
-      ul.nav
-        li
-          a(href='/') Home
-        li
-          a(href='/about') About
-        li
-          a(href='/Contact') Contact 
-    block content
-
+    .wrapper
+      header
+        ul.nav
+          li
+            a(href='/') Home
+          li
+            a(href='/about') About
+          li
+            a(href='/Contact') Contact
+      section.content           
+        block content
     footer
       p Copyright © 2012 - Powered by Kerry
+
+    
