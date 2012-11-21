@@ -90,7 +90,7 @@ nav,
 section {
   display: block;
 }
-/*body*/
+/*common*/
 html,
 body {
   height: 100%;
@@ -100,6 +100,13 @@ body {
   height: auto !important;
   margin-bottom: -50px;
 }
+.clear {
+  clear: both;
+  line-height: 0;
+  font-size: 0;
+  visibility: hidden;
+}
+/* header */
 header {
   background: whiteSmoke;
 }
@@ -115,12 +122,20 @@ header .nav li {
 header .nav li a {
   padding: 0 10px;
 }
-section.content {
-  padding: 10px;
-}
+/* header */
 footer {
   box-sizing: border-box;
   line-height: 50px;
   padding-left: 10px;
   background: whiteSmoke;
+}
+/* content */section.content {
+  float: left;
+  padding: 10px;
+  margin-right: 320px;
+}
+section.sidebar {
+  float: right;
+  width: 300px;
+  padding: 10px;
 }

@@ -4,13 +4,22 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textar
 /*HTML5 tags*/
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {display:block;}
 
-/*body*/
+/*common*/
 html,body{height:100%;}
 .wrapper{min-height:100%; height:auto !important; margin-bottom:-50px;}
+.clear{clear:both; line-height: 0; font-size: 0; visibility: hidden;}
+
+/* header */
 header{background: whiteSmoke;}
 header .nav{ display: block; height:40px; line-height: 40px; }
 header .nav li{float:left; display: inline-block;}
 header .nav li a{ padding:0 10px; }
-section.content{padding:10px;}
+
+
+/* header */
 footer{box-sizing:border-box; line-height: 50px; padding-left: 10px; background: whiteSmoke;}
 
+/* content */ 
+
+section.content{float:left; padding:10px; margin-right:320px;}
+section.sidebar{float:right; width:300px; padding:10px;}

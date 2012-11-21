@@ -3,6 +3,9 @@ html
   head
     title= title
     link(rel='stylesheet', href='/css/common.css')
+    block head
+      script(src='/vendor/jquery.js')
+      script(src='/vendor/caustic.js')
   body
     .wrapper
       header
@@ -15,6 +18,20 @@ html
             a(href='/Contact') Contact
       section.content           
         block content
+      section.sidebar
+          h3 Popular Post
+            ul
+              li iPhone Programming Totorial
+                .img 
+                | This is message
+                - var html = "<script></script>"
+                | !{html}
+            label(for='test')
+              | Username:
+              input(name='username',id='test')    
+            label Username
+              input(name='username')               
+
     footer
       p Copyright © 2012 - Powered by Kerry
 

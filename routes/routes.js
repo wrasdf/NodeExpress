@@ -6,3 +6,4 @@ module.exports = function(app){
 	app.get('/about', routes.about);
 	app.get('/contact', routes.contact);
 }
+
