@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  
+  dl.show-content
+    dt.sub-title 
+      | Title : #{subTitle}
+    dd.sub-content #{subContent} 
+
+  .clear
+  input(type='button',id='edit-button',value='edit')  
+
+  form.form.hide(method='post',action='/view')
+    label(for='post-title')
+      | Title  
+      input(name='title',type='text',id='post-title')
+    .clear  
+    textarea.textarea(id='post-content',name='post-content')
+    .clear
+    input(type='submit',id='submit-form') 
+
+block append script
+  script(type="text/javascript")
+    $("#edit-button").bind('click',function(){  
+      $('.show-content').hide();
+      $(".form").show();
+      $(this).hide();
+      $(".form #post-title").val($(".sub-title").html());
+      $(".form #post-content").val($(".sub-content").html());
+    });

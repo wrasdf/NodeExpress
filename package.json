@@ -8,6 +8,8 @@
   "dependencies": {
     "express": "latest",
     "jade": "latest",
-    "less-middleware": "latest"
+    "less-middleware": "latest",
+    "nodemon" : "latest",
+    "mongoose" : "latest"
   }
 }

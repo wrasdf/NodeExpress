@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 This Post Page
+  form.form(method='post',action='/view')
+    label(for='post-title')
+      | Title  
+      input(name='title',type='text',id='post-title')
+    .clear  
+    textarea.textarea(name='post-content')
+    .clear
+    input(type='submit',id='submit-form')

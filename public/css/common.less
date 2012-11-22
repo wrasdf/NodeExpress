@@ -5,9 +5,15 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textar
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {display:block;}
 
 /*common*/
+
 html,body{height:100%;}
 .wrapper{min-height:100%; height:auto !important; margin-bottom:-50px;}
 .clear{clear:both; line-height: 0; font-size: 0; visibility: hidden;}
+.hide{display:none;}
+
+textarea{padding:5px;}
+input[type='text']{padding:2px 4px;}
+input[type='button'],input[type='submit']{ padding:4px; border:1px #ccc solid; }
 
 /* header */
 header{background: whiteSmoke;}
@@ -17,9 +23,10 @@ header .nav li a{ padding:0 10px; }
 
 
 /* header */
-footer{box-sizing:border-box; line-height: 50px; padding-left: 10px; background: whiteSmoke;}
+footer{clear:both;box-sizing:border-box; line-height: 50px; padding-left: 10px; background: whiteSmoke;}
 
 /* content */ 
+.form .textarea{margin:10px 0 0 0; width:500px; height:200px;}
 
 section.content{float:left; padding:10px; margin-right:320px;}
 section.sidebar{float:right; width:300px; padding:10px;}
