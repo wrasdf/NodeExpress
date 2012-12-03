@@ -2,11 +2,11 @@ extends layout
 
 block content
   h1 This Post Page
-  form.form(method='post',action='/view')
+  form.form(method='post',action='/update')
     label(for='post-title')
       | Title  
-      input(name='title',type='text',id='post-title')
+      input(name='title',type='text',id='post-title', value='Title test')
     .clear  
-    textarea.textarea(name='post-content')
+    textarea.textarea(name='post-content') test ttst
     .clear
     input(type='submit',id='submit-form')
