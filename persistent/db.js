@@ -9,7 +9,7 @@ db.once('open', function callback () {
 
 
 var ListPost = new Schema({
-	id : Number,
+	id : String,
 	title : String,
 	content : String,
 	update_date : Date

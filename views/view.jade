@@ -4,13 +4,14 @@ block content
   
   dl.show-content
     dt.sub-title 
-      | Title : #{subTitle}
+      | Title : 
+      span #{subTitle}
     dd.sub-content #{subContent} 
 
   .clear
   input(type='button',id='edit-button',value='edit')  
 
-  form.form.hide(method='post',action='/view')
+  form.form.hide(method='post',action='/update/id/#{id}')
     label(for='post-title')
       | Title  
       input(name='title',type='text',id='post-title')
@@ -25,6 +26,6 @@ block append script
       $('.show-content').hide();
       $(".form").show();
       $(this).hide();
-      $(".form #post-title").val($(".sub-title").html());
+      $(".form #post-title").val($(".sub-title span").text());
       $(".form #post-content").val($(".sub-content").html());
     });
