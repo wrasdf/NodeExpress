@@ -1,11 +1,11 @@
-extends layout
+extends ../layout/layout
 
 block content
   h1 Create your daily note
   form.form(method='post',action='/update')
     label(for='post-title')
-      | Title:   
-      input(name='title',type='text',id='post-title', value='')
+      b Title : 
+      input(name='title',type='text',id='post-title')
     .clear  
     textarea.textarea(name='post-content')
     .clear

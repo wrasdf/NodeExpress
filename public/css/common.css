@@ -181,6 +181,32 @@ section.content {
   padding: 10px;
   margin-right: 300px;
 }
+section.content h1 {
+  font-size: 16px;
+  padding-bottom: 20px;
+}
+section.content #edit-button {
+  margin-right: 10px;
+}
+section.content .back {
+  display: inline-block;
+  margin: 5px 0 10px 0;
+}
+section.content .form #submit-form {
+  margin: 10px 0;
+}
+section.content .form #cancel-button {
+  margin-right: 10px;
+}
+section.content .show-content {
+  margin: 10px 0 0;
+}
+section.content .show-content dt {
+  padding-bottom: 10px;
+}
+section.content .show-content dd {
+  padding: 0 0 20px 0;
+}
 section.content .post-list li {
   padding: 14px 10px 10px;
   border-bottom: 1px #666 dotted;
@@ -206,28 +232,6 @@ section.content .post-list li section.operations a {
 section.content .post-list li:last-child {
   border-bottom: 0px;
 }
-section.content h1 {
-  font-size: 16px;
-  padding-bottom: 20px;
-}
-section.content #edit-button {
-  margin-right: 10px;
-}
-section.content .form #submit-form {
-  margin: 10px 0;
-}
-section.content .form #cancel-button {
-  margin-right: 10px;
-}
-section.content .show-content {
-  margin: 10px 0 0;
-}
-section.content .show-content dt {
-  padding-bottom: 10px;
-}
-section.content .show-content dd {
-  padding: 0 0 20px 0;
-}
 section.sidebar {
   float: right;
   width: 260px;
@@ -243,7 +247,7 @@ section.sidebar p {
 }
 section.sidebar b.subtitle {
   display: block;
-  padding: 5px 0 0 10px;
+  padding: 5px 0 5px 10px;
 }
 section.sidebar ul li {
   line-height: 20px;

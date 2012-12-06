@@ -36,17 +36,10 @@ footer{position: relative; margin-top: -50px; height:50px; line-height: 50px;  c
 /* content */ 
 .form .textarea{margin:10px 0 0 0; width:500px; height:200px;}
 
-section.content{padding:10px; margin-right:300px;}
-section.content .post-list li{ padding:14px 10px 10px;border-bottom: 1px #666 dotted; 	 
-	a.title{ display: inline-block; color:#1C67AC; font-weight: bold; margin-bottom: 5px;}
-	p .data{ color:darkGray; font-size:10px;}
-	p.c{ line-height: 22px; padding: 5px 0 0px; }
-	section.operations a{text-align: left; margin-right: 10px;}
-}
-section.content .post-list li:last-child{border-bottom: 0px;}
-section.content{
+section.content{ padding:10px; margin-right:300px;
 	h1 { font-size: 16px; padding-bottom: 20px;}	
 	#edit-button{margin-right: 10px;}
+	.back{display: inline-block;margin:5px 0 10px 0;}
 	.form{
 		 #submit-form{ margin:10px 0;}
 		 #cancel-button {margin-right: 10px;}
@@ -56,14 +49,22 @@ section.content{
 		dt{padding-bottom: 10px;}
 		dd{padding:0 0 20px 0;}
 	}
-} 
+}
+
+section.content .post-list li{ padding:14px 10px 10px;border-bottom: 1px #666 dotted; 	 
+	a.title{ display: inline-block; color:#1C67AC; font-weight: bold; margin-bottom: 5px;}
+	p .data{ color:darkGray; font-size:10px;}
+	p.c{ line-height: 22px; padding: 5px 0 0px; }
+	section.operations a{text-align: left; margin-right: 10px;}
+}
+section.content .post-list li:last-child{border-bottom: 0px;}
+
 section.sidebar{float:right; width:260px; padding:10px;
 	h2{padding: 14px 0 10px 0; font-size: 15px; font-weight: bold; }
 	p {padding:0 0 5px 10px;}
-	b.subtitle{display:block;padding: 5px 0 0 10px;}
+	b.subtitle{display:block;padding: 5px 0 5px 10px;}
 	ul {
 		li{line-height: 20px; padding-left: 20px;}	
 	}
-	
 }
 

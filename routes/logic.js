@@ -1,20 +1,21 @@
 var listModel = require("../persistent/db.js").listModel;
 var Common = require("../common/common.js").Common;
+// var pageination = require("../routes/page.js").pageination;
 
 exports.index = function(req, res){
 
-  listModel.find({}).sort({"update_date": -1}).limit(10).find(function(err,data){
-    res.render('index', { title: 'index', list : data});
+  listModel.find({}).sort({"update_date": -1}).limit(5).find(function(err,data){
+    res.render('features/index', { title: 'index', list : data});
   });
 
 };
 
 exports.about = function(req, res){
-  res.render('about', { title: 'about' });
+  res.render('features/about', { title: 'about' });
 };
 
 exports.create = function(req, res){
-  res.render('create', { title: 'create' });
+  res.render('features/create', { title: 'create' });
 };
 
 exports.update = function(req, res){
@@ -57,7 +58,7 @@ exports.updateById = function(req,res){
 exports.viewById = function(req, res){
 	var id = req.params.id;
 	listModel.findOne({id:id},function(err,data){
-  		res.render('view', { 
+  		res.render('features/view', { 
         'subTitle': data.title, 
         'subContent':data.content , 
         'id' : id,
@@ -65,6 +66,13 @@ exports.viewById = function(req, res){
       });  
 	});
 };
+
+exports.viewAll = function(req, res){
+  listModel.find({}).sort({"update_date": -1}).find(function(err,data){
+    res.render('features/viewAll', { title: 'index', list : data});
+  });
+};
+
 
 exports.deleteById = function(req, res){
   var id = req.params.id;

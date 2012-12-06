@@ -1,11 +1,4 @@
-extends layout
-
-block append head
-  script(src='test.js')
-
-block content
-  
-  ul.post-list
+ul.post-list
     - each item in list
       - if(item.id)
         li  
@@ -13,8 +6,3 @@ block content
           p.t
             span.data #{item.update_date}  
           p.c #{item.content} 
-
-
-
-            
-        
