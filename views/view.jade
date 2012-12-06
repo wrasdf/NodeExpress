@@ -2,30 +2,50 @@ extends layout
 
 block content
   
-  dl.show-content
-    dt.sub-title 
-      | Title : 
-      span #{subTitle}
-    dd.sub-content #{subContent} 
+  .view-content
+    dl.show-content(data-id='#{id}')
+      dt.sub-title 
+        | Title : 
+        span #{subTitle}
+      dd.sub-content #{subContent} 
 
-  .clear
-  input(type='button',id='edit-button',value='edit')  
+    .clear
+    input(type='button',id='edit-button',value='edit') 
+    input(type='button',id='delete-button',value='delete')    
 
   form.form.hide(method='post',action='/update/id/#{id}')
+    h1 Update this daily note
     label(for='post-title')
       | Title  
       input(name='title',type='text',id='post-title')
     .clear  
     textarea.textarea(id='post-content',name='post-content')
     .clear
+    input(type='button',id='cancel-button',value='Cancel') 
     input(type='submit',id='submit-form') 
 
 block append script
   script(type="text/javascript")
+  
     $("#edit-button").bind('click',function(){  
-      $('.show-content').hide();
+      $('.view-content').hide();
       $(".form").show();
-      $(this).hide();
       $(".form #post-title").val($(".sub-title span").text());
       $(".form #post-content").val($(".sub-content").html());
     });
+
+    $("#delete-button").bind('click',function(){
+      var id = $('.show-content').data('id');
+      $.get("/delete/id/"+id,function(o){
+        if(o.status == 'success'){
+          window.location = '/';
+        }else{
+          alert("error");
+        }
+      })
+    });
+
+    $("#cancel-button").bind('click',function(){
+      var id = $('.show-content').data('id');
+      window.location = '/view/id/'+id;
+    })

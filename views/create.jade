@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  h1 This Post Page
+  h1 Create your daily note
   form.form(method='post',action='/update')
     label(for='post-title')
-      | Title  
+      | Title:   
       input(name='title',type='text',id='post-title', value='')
     .clear  
     textarea.textarea(name='post-content')

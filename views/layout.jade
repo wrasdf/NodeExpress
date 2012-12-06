@@ -5,16 +5,36 @@ html
     link(rel='stylesheet', href='/css/common.css')
   body
     .wrapper
-      header
-        ul.nav
-          li
-            a(href='/') Home
-          li
-            a(href='/about') About
-          li
-            a(href='/create') Create
-      section.content           
-        block content    
+      .inner-wrapper
+        header
+          h1.title Keep Thinking
+          span.description Pain past is pleaseure
+          ul.nav
+            li
+              a(href='/') Home
+            li
+              a(href='/create') Create Note
+            li
+              a(href='/about') About  
+        
+        section.sidebar
+          h2 About this blog
+          p This blog is created by Javascript. 
+          b.subtitle Technique Radio :
+          ul
+            li Node
+            li Express
+            li MongoDB
+            li Mongoose
+            li Jade
+          h2 Causerie
+          ul
+
+
+        section.content           
+          block content
+        
+                
     footer
       p Copyright © 2012 - Powered by Kerry
 

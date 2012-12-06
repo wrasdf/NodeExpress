@@ -4,10 +4,17 @@ block append head
   script(src='test.js')
 
 block content
-  h1 Welcome to #{title}
-  p This is a Nodejs & Express & Less & Jade Web page
   
-  dl
-    dt
-    dd
+  ul.post-list
+    - each item in list
+      - if(item.id)
+        li  
+          a.title(href='/view/id/#{item.id}') #{item.title}
+          p.t
+            span.data #{item.update_date}  
+          p.c #{item.content} 
 
+
+
+            
+        
