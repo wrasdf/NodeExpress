@@ -1,6 +1,12 @@
 var listModel = require("../persistent/db.js").listModel;
 var Common = require("../common/common.js").Common;
-// var pageination = require("../routes/page.js").pageination;
+
+exports.Error404 = function(req,res){
+  res.render('errors/404',{
+    status : 404,
+    title : "404 Not Found."
+  });
+}
 
 exports.index = function(req, res){
 

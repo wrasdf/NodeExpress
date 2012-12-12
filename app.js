@@ -10,6 +10,7 @@ var cacheTime = {
 }
 
 var app = express();
+var store = new express.session.MemoryStore;
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -20,21 +21,20 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser("NodeExpress"));
-  app.use(express.session({secret : "NodeExpress" , cookie: {maxAge: cacheTime.oneHour}}));
-  app.use(app.router);
+  app.use(express.cookieSession({secret : "NodeExpress", cookie: {maxAge: cacheTime.oneHour}}));
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.staticCache());
 });
 
 app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions : true, showStack : true }));
-  app.use(express.static(path.join(__dirname, 'public')));
+  app.use(express.static(__dirname+'/public'));
   app.use(express.compress());
 });
 
 app.configure( 'production', function (){
   app.use(express.errorHandler());
-  app.use(gzippo.staticGzip(path.join(__dirname, 'public')), {maxAge: cacheTime.oneDay});
+  app.use(gzippo.staticGzip((__dirname+'/public'), { maxAge: cacheTime.oneDay }));
   app.use(gzippo.compress());
 });
 
