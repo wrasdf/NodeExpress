@@ -34,7 +34,7 @@ app.configure('development', function(){
 
 app.configure( 'production', function (){
   app.use(express.errorHandler());
-  app.use(gzippo.staticGzip((__dirname+'/public'), { maxAge: cacheTime.oneDay }));
+  app.use(gzippo.staticGzip(__dirname+'/public', { maxAge: cacheTime.oneDay }));
   app.use(gzippo.compress());
 });
 
