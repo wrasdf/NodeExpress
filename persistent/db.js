@@ -3,10 +3,7 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-  console.log("DB is opened.");
-});
-
+db.once('open', function callback () { console.log("DB is starting.");});
 
 var ListPost = new Schema({
 	id : String,

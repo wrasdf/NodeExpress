@@ -141,6 +141,9 @@ header {
   background: whiteSmoke;
   border-bottom: 1px #ccc solid;
 }
+header .edit-header {
+  display: none;
+}
 header h1.title {
   font-size: 30px;
   padding: 20px 0 0 10px;
@@ -148,6 +151,17 @@ header h1.title {
 }
 header span.description {
   padding-left: 10px;
+  position: relative;
+  padding-right: 40px;
+}
+header span.description #edit-header-btn {
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: -5px;
+}
+header span.description:hover #edit-header-btn {
+  display: inline-block;
 }
 header .nav {
   display: block;
@@ -183,10 +197,24 @@ section.content {
 }
 section.content h1 {
   font-size: 16px;
+  display: inline-block;
   padding-bottom: 20px;
+}
+section.content span.sub-name {
+  font-size: 10px;
+  margin-left: 15px;
 }
 section.content #edit-button {
   margin-right: 10px;
+}
+section.content .sub-nav {
+  border-bottom: 1px #ccc dotted;
+  margin: -5px auto 20px;
+}
+section.content .readmore {
+  margin: 15px 0 0 10px;
+  display: inline-block;
+  font-weight: bold;
 }
 section.content .back {
   display: inline-block;
@@ -198,14 +226,14 @@ section.content .form #submit-form {
 section.content .form #cancel-button {
   margin-right: 10px;
 }
-section.content .show-content {
-  margin: 10px 0 0;
-}
 section.content .show-content dt {
   padding-bottom: 10px;
 }
 section.content .show-content dd {
   padding: 0 0 20px 0;
+}
+section.content .contact-details p {
+  line-height: 20px;
 }
 section.content .post-list li {
   padding: 14px 10px 10px;

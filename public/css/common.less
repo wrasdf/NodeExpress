@@ -22,8 +22,16 @@ input[type='button'],input[type='submit']{ padding:4px; border:1px #ccc solid; }
 
 /* header */
 header{background: whiteSmoke; border-bottom: 1px #ccc solid;
+	.edit-header{display: none;}
 	h1.title{font-size: 30px; padding:20px 0 0 10px; display: inline-block;}
-	span.description{padding-left: 10px;}
+	
+	span.description{padding-left: 10px; position: relative; padding-right: 40px;
+		#edit-header-btn{display: none; position: absolute; right: 0px; top:-5px;}
+	}
+	span.description:hover{
+		#edit-header-btn{display: inline-block;}	
+	}
+
 	.nav{ display: block; height:40px; line-height: 40px; }
 	.nav li{float:left; display: inline-block;}
 	.nav li a{ padding:0 10px; }
@@ -37,17 +45,23 @@ footer{position: relative; margin-top: -50px; height:50px; line-height: 50px;  c
 .form .textarea{margin:10px 0 0 0; width:500px; height:200px;}
 
 section.content{ padding:10px; margin-right:300px;
-	h1 { font-size: 16px; padding-bottom: 20px;}	
+	h1 { font-size: 16px; display: inline-block; padding-bottom: 20px; }
+	span.sub-name{font-size: 10px; margin-left: 15px;}	
 	#edit-button{margin-right: 10px;}
+	.sub-nav{border-bottom: 1px #ccc dotted; margin: -5px auto 20px;}
+	.readmore{margin: 15px 0 0 10px; display:inline-block; font-weight: bold;}
 	.back{display: inline-block;margin:5px 0 10px 0;}
 	.form{
 		 #submit-form{ margin:10px 0;}
 		 #cancel-button {margin-right: 10px;}
 
 	}
-	.show-content{margin:10px 0 0;
+	.show-content{
 		dt{padding-bottom: 10px;}
 		dd{padding:0 0 20px 0;}
+	}
+	.contact-details{
+		p{line-height: 20px;}
 	}
 }
 

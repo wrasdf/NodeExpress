@@ -6,7 +6,9 @@
     "start": "node app"
   },
   "dependencies": {
+    "connect":"lateset",
     "express": "latest",
+    "gzippo" : "lateset",
     "jade": "latest",
     "less-middleware": "latest",
     "nodemon" : "latest",

@@ -2,7 +2,7 @@ $("#edit-button").bind('click',function(){
     $('.view-content').hide();
     $(".form").show();
     $(".form #post-title").val($(".sub-title span").text());
-    $(".form #post-content").val($(".sub-content").html());
+    $(".form #post-content").val($(".sub-content span").text());
 });
 
 $("#delete-button").bind('click',function(){

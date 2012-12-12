@@ -1,5 +1,15 @@
-h1.title Keep Thinking
-span.description Pain past is pleaseure
+include UICompontents
+
+.show-header
+  h1.title Keep Thinking
+  span.description Pain past is pleaseure
+    mixin input('button','edit-header-btn','edit')
+.edit-header
+  h1.title Keep Thinking
+  span.edit 
+    mixin input('text','text-header','pain past is pleaseure')
+    mixin input('text','change-header-btn','change')
+    mixin input('text','cancel-header-btn','cancel')
 ul.nav
   li
     a(href='/') Home
@@ -7,3 +17,7 @@ ul.nav
     a(href='/create') Create Note
   li
     a(href='/about') About
+
+block append scripts
+  
+  
