@@ -5,7 +5,8 @@ var express = require('express')
 
 var cacheTime = {
   oneYear : 31557600000,
-  oneDay : 86400000
+  oneDay : 86400000,
+  oneHour : 3600000
 }
 
 var app = express();
@@ -19,7 +20,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser("NodeExpress"));
-  app.use(express.session({secret : "NodeExpress" , cookie: {maxAge: 1000}}));
+  app.use(express.session({secret : "NodeExpress" , cookie: {maxAge: cacheTime.oneHour}}));
   app.use(app.router);
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.staticCache());
@@ -40,5 +41,5 @@ app.configure( 'production', function (){
 require('./routes/routes.js')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port %d in %s mode.",app.get("port"),app.settings.env);
+  console.log("Express server listening on port %d in %s mode.", app.get("port"), app.settings.env);
 });
