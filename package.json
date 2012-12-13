@@ -6,10 +6,12 @@
     "start": "node app"
   },
   "dependencies": {
-    "connect":"lateset",
+    // "connect":"lateset",
     "express": "latest",
     "gzippo" : "lateset",
     "jade": "latest",
+    "ejs": "latest",
+    "ejs-locals": "latest",
     "less-middleware": "latest",
     "nodemon" : "latest",
     "mongoose" : "latest"

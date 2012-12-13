@@ -1,0 +1,35 @@
+<% layout('/layout/layout.ejs') %>
+
+<div class="sub-nav">
+  <a href="/" class='back'> <- Back Home </a>
+</div>
+
+<div class="view-content">
+  <dl class="show-content" data-id="<%= id %>">
+    <dt class="sub-title">
+      <b>Title : </b>
+      <span><%= subTitle %></span>
+    </dt>
+    <dd class="sub-content">
+      <b>Note : </b>
+      <span><%= subContent %></span>
+    </dd>
+  </dl>
+  <div class="clear"></div>
+  <input type="button" id="edit-button" value="edit">
+  <input type="button" id="delete-button" value="delete">
+</div>
+
+<form class="form hide" method="post" action="/update/id/<%= id %>">
+  <label for="post-title">
+    <b>Title : </b>
+    <input name="title" type="text" id="post-title" />
+  </label>
+  <div class="clear"></div>
+  <textarea class="textarea" id="post-content" name="post-content"></textarea>
+  <div class="clear"></div>
+  <input type="button" id="cancel-button" value="cancel" />
+  <input type="submit" id="submit-form" />
+</form>
+
+<% block("scripts", '<script type="text/javascript" src="/js/view.js"></script>')%>

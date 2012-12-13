@@ -11,17 +11,17 @@ exports.Error404 = function(req,res){
 exports.index = function(req, res){
 
   listModel.find({}).sort({"update_date": -1}).limit(5).find(function(err,data){
-    res.render('features/index', { title: 'index', list : data});
+    res.render('features/index', { title: 'index', nodeList : data});
   });
 
 };
 
 exports.about = function(req, res){
-  res.render('features/about', { title: 'about' });
+  res.render('features/about', { title: 'About Me' });
 };
 
 exports.create = function(req, res){
-  res.render('features/create', { title: 'create' });
+  res.render('features/create', { title: 'Create your daily notes.' });
 };
 
 exports.update = function(req, res){
@@ -75,7 +75,7 @@ exports.viewById = function(req, res){
 
 exports.viewAll = function(req, res){
   listModel.find({}).sort({"update_date": -1}).find(function(err,data){
-    res.render('features/viewAll', { title: 'index', list : data});
+    res.render('features/viewAll', { title: 'index', nodeList : data});
   });
 };
 

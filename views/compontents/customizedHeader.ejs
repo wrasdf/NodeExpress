@@ -1,0 +1,22 @@
+<div class="show-header">
+  <h1 class="title">Keep Thinking</h1>
+  <span class="description">
+    Pain past is pleaseure
+    <input type="button" id="edit-header-btn" value="edit" />
+  </span>
+</div>
+<div class="edit-header">
+  <h1 class="title">Keep Thinking</h1>
+  <span class="edit">
+    <input type="text" id="text-header" value="pain past is pleaseure" />
+    <input type="button" id="change-header-btn" value="change" />
+    <input type="button" id="cancel-header-btn" value="cancel" />
+  </span>
+</div>
+<ul class="nav">
+  <li><a href="/">Home</a></li>
+  <li><a href="/create">Create Note</a></li>
+  <li><a href="/about">about</a></li>
+</ul>
+
+<% block('scripts', '<script type="text/javascript" src="/js/headerEdit.js"></script>') -%>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel='stylesheet' href='/css/common.css' />
+  </head>
+  <body>
+  	<div class="wrapper">
+  		<div class="inner-wrapper">
+  			<header>
+  				<%- partial('../compontents/customizedHeader.ejs') %>
+  			</header>
+  			<section class="sidebar">
+  				<%- partial("../compontents/aboutBlog.ejs") %>
+  				<%- partial("../compontents/causerie.ejs") %>
+  			</section>
+  			<section class="content">
+          <%- body %>
+  			</section>
+  		</div>	
+  	</div>
+  	<footer>p Copyright © 2012 - Powered by Kerry </footer>
+  	<script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
+  	<%- scripts %>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<ul class="post-list">
+	<% for(var i=0; i<nodeList.length; i++) { %>
+		<li>
+			<a class="title" href="/view/id/<%- nodeList[i].id %>"><%- nodeList[i].title %></a>
+			<p class="t">
+				<span class="data"><%- nodeList[i].update_date %></span>
+			</p>
+			<p class="c">
+				<%- nodeList[i].content %>
+			</p>
+		</li>	
+	<% } %>
+</ul>
