@@ -1,8 +1,0 @@
-ul.post-list
-    - each item in list
-      - if(item.id)
-        li  
-          a.title(href='/view/id/#{item.id}') #{item.title}
-          p.t
-            span.data #{item.update_date}  
-          p.c #{item.content} 
