@@ -1,19 +1,25 @@
 var $ = require("../common/common.js").$;
 var notesModel = require("../persistent/db.js").listModel;
 
+
 function NoteProvider(){
 	this.notesModel = notesModel;
+	this.id = 1;
 };
 
 NoteProvider.prototype.createNote = function(options,callback) {
 
-	new this.notesModel($.extend({ id : $.guid(), update_date : Date.now()},options)).save(function(err,data){
+	var self = this;
+	
+	new this.notesModel($.extend({ id : self.id , update_date : Date.now()},options)).save(function(err,data){
 		if(err){
 			callback(err,data);
 		}else{
 			callback(null,data);
 		}
 	});	
+
+	this.id ++;
 
 }
 
