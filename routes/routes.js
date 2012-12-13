@@ -10,8 +10,5 @@ module.exports = function(app){
 	app.get('/view/id/:id', routes.viewById);
 	app.post('/update',routes.update);
 	app.post('/update/id/:id',routes.updateById);
-	// app.get('*',routes.Error404);
+	app.get('*',routes.Error404);
 }
-
-
-
