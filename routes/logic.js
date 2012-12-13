@@ -1,5 +1,4 @@
-var listModel = require("../persistent/db.js").listModel;
-var Common = require("../common/common.js").Common;
+var noteProvider = require("../persistent/noteProvider.js");
 
 exports.Error404 = function(req,res){
   res.render('errors/404',{
@@ -10,9 +9,13 @@ exports.Error404 = function(req,res){
 
 exports.index = function(req, res){
 
-  listModel.find({}).sort({"update_date": -1}).limit(5).find(function(err,data){
-    res.render('features/index', { title: 'index', nodeList : data});
-  });
+  noteProvider.findByOptions({},function(err,data){
+    if(err){
+      conosole.log("DB Error.");
+    }else{
+      res.render('features/index', { title: 'index', nodeList : data});
+    }
+  },5);
 
 };
 
@@ -29,13 +32,16 @@ exports.update = function(req, res){
   var subTitle = req.body["title"] || "UnTitled";
   var subContent = req.body["post-content"] || "No content";
 
-  new listModel({
-      id : Common.guid(),
+  noteProvider.createNote({
       title : subTitle,
-      content    : subContent,
-      update_date : Date.now()
-  }).save( function( err,data){
-      res.redirect( '/view/id/'+ data.id);
+      content : subContent
+  },function(err,data){
+    if(err){
+      console.log("DB create note error.");
+    }else{
+      res.redirect( '/view/id/'+ data.id);  
+    }
+    
   });
   
 };
@@ -46,43 +52,57 @@ exports.updateById = function(req,res){
   var subTitle = req.body["title"] || "UnTitled";
   var subContent = req.body["post-content"] || "No content";
 
-  listModel.findOne({id:id},function(err,data){
-    data.title = subTitle;
-    data.content = subContent;
-    data.save(function(err){
+  noteProvider.updateNotes(
+    {id:id},
+    {
+      title : subTitle,
+      content : subContent
+    },
+    function(err){
       if(err){
         console.log("error");
       }else{
-        res.redirect( '/view/id/'+ data.id);
+        res.redirect( '/view/id/'+ id);
       }
-    });  
-  });
+    }
+  );
     
 }
 
 
 exports.viewById = function(req, res){
 	var id = req.params.id;
-	listModel.findOne({id:id},function(err,data){
-  		res.render('features/view', { 
-        'subTitle': data.title, 
-        'subContent':data.content , 
+  
+  noteProvider.findByOptions({id:id},function(err,data){
+    if(err){
+      conosole.log("DB Error.");
+    }else{
+      res.render('features/view', { 
+        'subTitle': data[0].title, 
+        'subContent':data[0].content , 
         'id' : id,
         'title' : 'view'
-      });  
-	});
+      });
+    }
+  });
+
 };
 
 exports.viewAll = function(req, res){
-  listModel.find({}).sort({"update_date": -1}).find(function(err,data){
-    res.render('features/viewAll', { title: 'index', nodeList : data});
+  noteProvider.findByOptions({},function(err,data){
+    if(err){
+      conosole.log("DB Error.");
+    }else{
+      console.log(data);
+      res.render('features/viewAll', { title: 'index', nodeList : data});  
+    }
   });
 };
 
 
 exports.deleteById = function(req, res){
   var id = req.params.id;
-  listModel.remove({id:id},function(err,data){
+  noteProvider.deleteNoteByOptions({id:id},function(err){
       if(err){
         res.send({"status":"error"});
         return;    

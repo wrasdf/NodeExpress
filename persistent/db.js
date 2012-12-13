@@ -14,8 +14,17 @@ var ListPost = new Schema({
 	return this.id;
 });
 
+var AccountDetail = new Schema({
+	name : String,
+	description : String,
+	update_date : Date
+});
+
+
 var ListModel = db.model('ListPost',ListPost);
+var AccountModel = db.model('AccountDetail',AccountDetail);
 
 module.exports = {
-	listModel : ListModel
+	listModel : ListModel,
+	accountDetail : AccountDetail
 };

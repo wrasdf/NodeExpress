@@ -1,4 +1,4 @@
-var Common = (function(){
+var $ = (function(){
 
 	function guid() {
 	    function S4() {
@@ -7,12 +7,21 @@ var Common = (function(){
 	    return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 	}
 
+	function extend(target,source){
+		target = target || {};
+		for (var prop in source) {
+			target[prop] = source[prop];
+		}
+		return target;
+	}
+
 	return {
-		guid : guid
+		guid : guid,
+		extend : extend
 	}
 
 })();
 
 module.exports = {
-	Common : Common
+	$ : $
 };
