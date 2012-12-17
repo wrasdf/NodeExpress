@@ -13,7 +13,7 @@ var ListPost = new Schema({
 	id : Number,
 	title : String,
 	content : String,
-	update_date : Date
+	update_date : { type: Date, default: Date.now }
 }).method("getMaxId",function(){
 	return this.id;
 });
@@ -21,12 +21,12 @@ var ListPost = new Schema({
 var HeaderDetail = new Schema({
 	name : String,
 	description : String,
-	update_date : Date
+	update_date : { type: Date, default: Date.now }
 });
 
 
 module.exports = {
 	listModel : db.model('ListPost',ListPost),
 	headerModel : db.model('HeaderDetail',HeaderDetail),
-	guidMap : db.model('GuidMap',GuidMap))
+	guidMap : db.model('GuidMap',GuidMap)
 };

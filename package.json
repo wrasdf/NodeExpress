@@ -1,19 +1,25 @@
 {
   "name": "Online-Node-Express",
-  "version": "0.0.1",
+  "version": "0.2",
   "private": true,
   "scripts": {
     "start": "node app"
   },
   "dependencies": {
-    // "connect":"lateset",
+    "connect":"latest",
     "express": "latest",
-    "gzippo" : "lateset",
-    "jade": "latest",
+    "gzippo" : "latest",
+    "express-uglify" : "latest",
     "ejs": "latest",
     "ejs-locals": "latest",
     "less-middleware": "latest",
     "nodemon" : "latest",
     "mongoose" : "latest"
+  },
+  "devDependencies" : {
+    "mocha" : "latest"
+  },
+  "engines" : {
+    "node" : "0.8.14"
   }
 }

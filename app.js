@@ -1,7 +1,11 @@
+
 var express = require('express')
   , http = require('http')
   , path = require('path')
   , gzippo = require('gzippo');
+  // , expressUglify = require('express-uglify')
+  // , assetManager = require('connect-assetmanager')
+  // , assetHandler = require('connect-assetmanager-handlers');
 
 var cacheTime = {
   oneYear : 31557600000,
@@ -9,23 +13,42 @@ var cacheTime = {
   oneHour : 3600000
 }
 
+// var assets = {
+//    'allJs':{
+//        'debug': true,
+//        'route': /\/js\/*.js/,
+//        'path': './public/scripts/',
+//        'dataType': 'javascript',
+//        'files': [
+//            'jquery-1.8.3.min.js',
+//            'headerEdit.js',
+//            'view.js'
+//        ],
+//        'postManipulate': {
+//            '^': [assetHandler.uglifyJsOptimize]
+//        }
+//    }
+// }
+
+
 var app = express();
-var store = new express.session.MemoryStore;
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
-  // app.set('view engine', 'jade');
   app.engine('ejs',require('ejs-locals'));
   app.set('view engine', 'ejs');
   app.use(express.favicon());
-  app.use(express.logger('dev'));
   app.use(express.bodyParser());
-  app.use(express.methodOverride());
   app.use(express.cookieParser("NodeExpress"));
-  app.use(express.cookieSession({secret : "NodeExpress", cookie: {maxAge: cacheTime.oneHour}}));
+  app.use(express.session({ secret: "NodeExpress" }));
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
-  app.use(express.staticCache());
+  app.use(express.csrf());
+  app.use(function(req, res, next){
+    res.locals.token = req.session ? req.session._csrf : '';
+    // Set local "_csrf" hidden input value to token.
+    next();
+  });
 });
 
 app.configure('development', function(){
@@ -36,9 +59,15 @@ app.configure('development', function(){
 
 app.configure( 'production', function (){
   app.use(express.errorHandler());
+  // app.use(assetManager(assets), express.static(__dirname+'/public'));
   app.use(gzippo.staticGzip(__dirname+'/public', { maxAge: cacheTime.oneDay }));
   app.use(gzippo.compress());
 });
+
+// app.use(function(req,res,next){
+//     res.locals.user = req.session ? req.session.user:'';
+//     res.locals.keyword = req.session ? req.session.keyword:'';  
+// });
 
 require('./routes/routes.js')(app);
 

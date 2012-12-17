@@ -1,11 +1,21 @@
 var $ = require("../common/common.js").$;
 var notesModel = require("../persistent/db.js").listModel;
+var guidModel = require("../persistent/guidProvider.js");
 
 
 function NoteProvider(){
+	var self = this;
 	this.notesModel = notesModel;
+	this.guidModel = guidModel;
 	this.id = 1;
-};
+	this.guidModel.getLatestNoteId(function(error,data){
+		if(error){
+			console.log("set note provider latest id error.");
+		}else{
+			self.id = data.noteId;
+		}
+	});
+}
 
 NoteProvider.prototype.createNote = function(options,callback) {
 
@@ -16,10 +26,15 @@ NoteProvider.prototype.createNote = function(options,callback) {
 			callback(err,data);
 		}else{
 			callback(null,data);
+			guidModel.increaseNoteId(function(err,data){
+				if(err){
+					callback(err,data);
+				}else{
+					self.id++;
+				}	
+			});
 		}
 	});	
-
-	this.id ++;
 
 }
 

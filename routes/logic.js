@@ -75,7 +75,7 @@ exports.viewById = function(req, res){
   
   noteProvider.findByOptions({id:id},function(err,data){
     if(err){
-      conosole.log("DB Error.");
+      console.log("DB view id Error.");
     }else{
       res.render('features/view', { 
         'subTitle': data[0].title, 
@@ -91,7 +91,7 @@ exports.viewById = function(req, res){
 exports.viewAll = function(req, res){
   noteProvider.findByOptions({},function(err,data){
     if(err){
-      conosole.log("DB Error.");
+      conosole.log("DB view all Error.");
     }else{
       console.log(data);
       res.render('features/viewAll', { title: 'index', nodeList : data});  
