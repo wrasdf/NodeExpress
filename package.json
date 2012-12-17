@@ -9,10 +9,11 @@
     "connect":"latest",
     "express": "latest",
     "gzippo" : "latest",
-    "express-uglify" : "latest",
+    "fs-extra" : "latest",
     "ejs": "latest",
     "ejs-locals": "latest",
     "less-middleware": "latest",
+    "node-minify" : "latest",
     "nodemon" : "latest",
     "mongoose" : "latest"
   },
