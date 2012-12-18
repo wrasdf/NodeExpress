@@ -9,13 +9,12 @@
     "connect":"latest",
     "express": "latest",
     "gzippo" : "latest",
-    "fs-extra" : "latest",
     "ejs": "latest",
     "ejs-locals": "latest",
     "less-middleware": "latest",
-    "node-minify" : "latest",
     "nodemon" : "latest",
-    "mongoose" : "latest"
+    "mongoose" : "latest",
+    "uglify-js" : "latest"
   },
   "devDependencies" : {
     "mocha" : "latest"

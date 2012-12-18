@@ -23,7 +23,7 @@ app.configure(function(){
   app.use(express.cookieParser("NodeExpress"));
   app.use(express.session({ secret: "NodeExpress" }));
   app.use(require('less-middleware')({ src: __dirname + '/developmentPublic' }));
-  app.use(require(__dirname+"/routes/expressCompress.js"));
+  app.use(require(__dirname+"/routes/compile.js"));
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.csrf());
   app.use(function(req, res, next){
