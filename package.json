@@ -1,25 +1,25 @@
 {
   "name": "Online-Node-Express",
-  "version": "0.2",
+  "version": "0.3",
+  "email": "wrasdf@gmail.com",
   "private": true,
   "scripts": {
     "start": "node app"
   },
   "dependencies": {
-    "connect":"latest",
     "express": "latest",
-    "gzippo" : "latest",
+    "gzippo": "latest",
     "ejs": "latest",
     "ejs-locals": "latest",
     "less-middleware": "latest",
-    "nodemon" : "latest",
-    "mongoose" : "latest",
-    "uglify-js" : "latest"
+    "mongoose": "latest",
+    "node-minify" : "latest"
   },
-  "devDependencies" : {
-    "mocha" : "latest"
+  "devDependencies": {
+    "mocha": "latest",
+    "grunt": "~0.4.0"
   },
-  "engines" : {
-    "node" : "0.8.14"
+  "engines": {
+    "node": "0.8.14"
   }
 }
