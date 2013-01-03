@@ -1,0 +1,96 @@
+/* content */
+.form .textarea {
+  margin: 10px 0 0 0;
+  width: 500px;
+  height: 200px;
+}
+section.content {
+  padding: 10px;
+  margin-right: 300px;
+}
+section.content h1 {
+  font-size: 16px;
+  display: inline-block;
+  padding-bottom: 20px;
+}
+section.content span.sub-name {
+  font-size: 10px;
+  margin-left: 15px;
+}
+section.content #edit-button {
+  margin-right: 10px;
+}
+section.content .sub-nav {
+  border-bottom: 1px #ccc dotted;
+  margin: -5px auto 20px;
+}
+section.content .readmore {
+  margin: 15px 0 0 10px;
+  display: inline-block;
+  font-weight: bold;
+}
+section.content .back {
+  display: inline-block;
+  margin: 5px 0 10px 0;
+}
+section.content .form #submit-form {
+  margin: 10px 0;
+}
+section.content .form #cancel-button {
+  margin-right: 10px;
+}
+section.content .show-content dt {
+  padding-bottom: 10px;
+}
+section.content .show-content dd {
+  padding: 0 0 20px 0;
+}
+section.content .contact-details p {
+  line-height: 20px;
+}
+section.content .post-list li {
+  padding: 14px 10px 10px;
+  border-bottom: 1px #666 dotted;
+}
+section.content .post-list li a.title {
+  display: inline-block;
+  color: #1C67AC;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+section.content .post-list li p .data {
+  color: darkGray;
+  font-size: 10px;
+}
+section.content .post-list li p.c {
+  line-height: 22px;
+  padding: 5px 0 0px;
+}
+section.content .post-list li section.operations a {
+  text-align: left;
+  margin-right: 10px;
+}
+section.content .post-list li:last-child {
+  border-bottom: 0px;
+}
+section.sidebar {
+  float: right;
+  width: 260px;
+  padding: 10px;
+}
+section.sidebar h2 {
+  padding: 14px 0 10px 0;
+  font-size: 15px;
+  font-weight: bold;
+}
+section.sidebar p {
+  padding: 0 0 5px 10px;
+}
+section.sidebar b.subtitle {
+  display: block;
+  padding: 5px 0 5px 10px;
+}
+section.sidebar ul li {
+  line-height: 20px;
+  padding-left: 20px;
+}

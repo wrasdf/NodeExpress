@@ -13,6 +13,8 @@ var cacheTime = {
 
 var app = express();
 
+console.log(__dirname);
+
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
@@ -22,7 +24,6 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.cookieParser("NodeExpress"));
   app.use(express.session({ secret: "NodeExpress" }));
-  app.use(require('less-middleware')({ src: __dirname + '/developmentPublic' }));
   app.use(express.csrf());
   app.use(function(req, res, next){
     res.locals.token = req.session ? req.session._csrf : '';
@@ -37,6 +38,12 @@ app.configure('development', function(){
     res.locals.env = "development";
     next();
   });
+  app.use(require('less-middleware')({
+      src: __dirname + '/development',
+      compress: false,
+      debug: true,
+      force: true
+    }));
   app.use(express.static(__dirname+'/development'));
   app.use(express.compress());
 });
@@ -51,13 +58,7 @@ app.configure( 'production', function (){
   app.use(gzippo.compress());
 });
 
-
 require('./routes/routes.js')(app);
-
-if ('development' == app.get('env')) {
-  app.set('db uri', 'localhost/dev');
-}
-
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port %d in %s mode.", app.get("port"), app.settings.env);
