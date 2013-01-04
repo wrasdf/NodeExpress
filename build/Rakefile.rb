@@ -1,15 +1,19 @@
 require "./build.rb"
 env="development"
 
-task :default => [:launch]
-task :prod => [:clean,:compile,:test,:launch]
+#task :default => [:launch]
+#task :prod => [:clean,:compile,:test,:launch]
 
 task :run do
   env = ENV['ENV']
-  if env == nil || env == "development"
-    Rake::Task["default"].invoke
-  else
-    Rake::Task["prod"].invoke
+  if env == nil || env == "dev"
+    Rake::Task["launch"].invoke
+  end
+  if env == "prod"
+    Rake::Task["clean"].invoke
+    Rake::Task["compile"].invoke
+    Rake::Task["test"].invoke
+    Rake::Task["launch"].invoke
   end
 end
 
