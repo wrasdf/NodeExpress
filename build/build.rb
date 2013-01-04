@@ -3,11 +3,11 @@ class Build
 	ROOT = Dir.pwd + '/../'
 
 	def self.set_development_env
-		system 'export NODE_ENV=development'
+		system "export NODE_ENV=development"
 	end
 
 	def self.set_production_env
-		system 'export NODE_ENV=production'
+		system "export NODE_ENV=production"
 	end
 
 	def self.clean
@@ -32,15 +32,11 @@ class Build
 		}
 
 		compressList.each do |name,source|
-
 			inputFiles = source["src"].collect{ |x| "#{ROOT}"+x }.join(" ").to_s
 			outputFile = source["dest"]
-			# shell "system touch #{ROOT}public/js"
-			# shell "system touch #{outputFile}"
-
-
-			shell = "java -jar yuicompressor-2.4.7.jar --charset utf-8 #{inputFiles} -o #{ROOT}#{outputFile}"; 
-			puts shell
+			shell = "touch #{ROOT}#{outputFile} && "
+			shell += "cat #{inputFiles} > #{ROOT}#{outputFile} && "
+			shell += "java -jar yuicompressor-2.4.7.jar --charset utf-8 #{ROOT}#{outputFile} -o #{ROOT}#{outputFile}"; 
 			system shell
 		end	
 	end
@@ -52,9 +48,5 @@ class Build
 	def self.lanuch_app
 		system 'cd .. && node app'
 	end
-
-	# def self.t
-	# 	puts ROOT
-	# end
 
 end

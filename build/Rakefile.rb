@@ -2,30 +2,36 @@ require "build.rb"
 
 task :dev => [:setDevEnv,:launch]
 
-task :prod => [:setProdEnv,:clean,:compile,:launch]
+task :prod => [:setProdEnv,:clean,:compile,:test,:launch]
 
 task :setDevEnv do
+	puts "==================================================="
 	Build.set_development_env
+	puts "Set env is development"
 end
 
 task :setProdEnv do
+	puts "==================================================="
 	Build.set_production_env
+	puts "Set env is production"
 end
 
 task :test do
+	puts "==================================================="
   	Build.test
+  	puts "The task of test is finished."
 end
 
 task :clean do 
+	puts "==================================================="
 	Build.clean
 	puts "The task of clean is finished."
-	puts "==================================================="
 end
 
 task :compile do
+	puts "==================================================="
 	Build.compile
 	puts "The task of compile is finished."
-	puts "==================================================="
 end
 
 
