@@ -22,7 +22,6 @@ GuidProvider.prototype.getLatestNoteId = function(callback){
 						callback(null,data);
 					}
 				});	
-
 			}else{
 				callback(null,data);	
 			}

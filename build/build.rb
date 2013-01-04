@@ -5,7 +5,7 @@ class Build
   def self.clean
 
     # clean css files
-    shell = "rm -rdf #{ROOT}/public/js/ &&" ;
+    shell = "rm -rdf #{ROOT}/public/js/ &&";
     shell += "mkdir #{ROOT}/public/js/ && ";
 
     # clean css files
@@ -27,7 +27,7 @@ class Build
     compressList.each do |name, source|
       inputFiles = source["src"].collect { |x| "#{ROOT}/"+x }.join(" ").to_s
       outputFile = source["dest"]
-      shell  = "touch #{ROOT}/#{outputFile} && "
+      shell = "touch #{ROOT}/#{outputFile} && "
       shell += "cat #{inputFiles} > #{ROOT}/#{outputFile} && "
       shell += "java -jar #{ROOT}/build/yuicompressor-2.4.7.jar --charset utf-8 #{ROOT}/#{outputFile} -o #{ROOT}/#{outputFile}";
       system shell
@@ -39,7 +39,6 @@ class Build
   end
 
   def self.launch_app(env=development)
-  	puts env
     system "cd #{ROOT} && NODE_ENV=#{env} node app"
   end
 

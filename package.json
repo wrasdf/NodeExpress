@@ -12,13 +12,11 @@
     "ejs": "latest",
     "ejs-locals": "latest",
     "less-middleware": "latest",
-    "mongoose": "latest",
-    "node-minify" : "latest"
+    "mongoose": "latest"
   },
   "devDependencies": {
     "mocha": "latest",
-    "should": "latest",
-    "grunt": "~0.4.0"
+    "should": "latest"
   },
   "engines": {
     "node": "0.8.14"
