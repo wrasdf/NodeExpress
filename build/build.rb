@@ -1,28 +1,19 @@
 class Build
 
-  ROOT = Dir.pwd + '/../'
-
-  def self.set_development_env
-    sh %{export NODE_ENV=development}
-  end
-
-  def self.set_production_env
-  	%x{echo $NODE_ENV}
-    %x{export NODE_ENV=production}
-    %x{echo $NODE_ENV}
-  end
+  ROOT = Dir.pwd
 
   def self.clean
-    shell = 'cd .. && '
-    # clean css files
-    shell += 'rm -rdf public/js/ && ';
-    shell += 'mkdir public/js/ && ';
 
     # clean css files
-    shell += 'rm -rdf public/css/ && ';
-    shell += 'mkdir public/css/';
+    shell = "rm -rdf #{ROOT}/public/js/ &&" ;
+    shell += "mkdir #{ROOT}/public/js/ && ";
+
+    # clean css files
+    shell += "rm -rdf #{ROOT}/public/css/ && ";
+    shell += "mkdir #{ROOT}/public/css/";
 
     system shell
+
   end
 
   def self.compile
@@ -34,21 +25,22 @@ class Build
     }
 
     compressList.each do |name, source|
-      inputFiles = source["src"].collect { |x| "#{ROOT}"+x }.join(" ").to_s
+      inputFiles = source["src"].collect { |x| "#{ROOT}/"+x }.join(" ").to_s
       outputFile = source["dest"]
-      shell = "touch #{ROOT}#{outputFile} && "
-      shell += "cat #{inputFiles} > #{ROOT}#{outputFile} && "
-      shell += "java -jar yuicompressor-2.4.7.jar --charset utf-8 #{ROOT}#{outputFile} -o #{ROOT}#{outputFile}";
+      shell  = "touch #{ROOT}/#{outputFile} && "
+      shell += "cat #{inputFiles} > #{ROOT}/#{outputFile} && "
+      shell += "java -jar #{ROOT}/build/yuicompressor-2.4.7.jar --charset utf-8 #{ROOT}/#{outputFile} -o #{ROOT}/#{outputFile}";
       system shell
     end
   end
 
   def self.test
-    system 'cd .. && mocha'
+    system "cd #{ROOT} && mocha"
   end
 
-  def self.lanuch_app(env=development)
-    system "cd .. && NODE_ENV=#{env} node app"
+  def self.launch_app(env=development)
+  	puts env
+    system "cd #{ROOT} && NODE_ENV=#{env} node app"
   end
 
 end
