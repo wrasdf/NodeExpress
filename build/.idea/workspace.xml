@@ -19,19 +19,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="build.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="build.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="43" selection-start="486" selection-end="486" vertical-scroll-proportion="0.27125505">
+            <state line="40" column="30" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rakefile.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Rakefile.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Rakefile.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
+            <state line="4" column="45" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0795756">
               <folding />
             </state>
           </provider>
@@ -42,8 +42,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Rakefile.rb" />
         <option value="$PROJECT_DIR$/build.rb" />
+        <option value="$PROJECT_DIR$/Rakefile.rb" />
       </list>
     </option>
   </component>
@@ -192,16 +192,16 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Rakefile.rb">
+    <entry file="file://$PROJECT_DIR$/build.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
+        <state line="40" column="30" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.rb">
+    <entry file="file://$PROJECT_DIR$/Rakefile.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="43" selection-start="486" selection-end="486" vertical-scroll-proportion="0.27125505">
+        <state line="4" column="45" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0795756">
           <folding />
         </state>
       </provider>

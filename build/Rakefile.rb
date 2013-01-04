@@ -2,10 +2,7 @@ require "./build.rb"
 env="development"
 
 task :default => [:launch]
-
-task :prod => [:clean,:compile,:test,:launch] do
-  env = "production"
-end
+task :prod => [:clean,:compile,:test,:launch]
 
 task :run do
   env = ENV['ENV']
