@@ -5,18 +5,23 @@ Tec list:
 1. Node
 2. mongodb
 3. Express
-4. Ejs
-5. less
-6. rake
-7. YUIcompressor
+4. mongoose
+5. Ejs
+6. less
+7. rake
+8. YUIcompressor
 
 You can follow these steps to run this app:
 
-1. git clone "this repro"
-2. brew install mongodb
-3. $ mongod
-4. open a new shell tab run
-  // development env
-  $ rake run  
-  // production env
-  $ rake run ENV=prod
+1.clone code 
+  <pre>git clone "this repro"</pre>
+2. install mongodb app
+  <pre>brew install mongodb</pre>
+3. open mongodb app
+  <pre>$ mongod</pre>
+4. run different environment
+<pre>
+// development env
+$ rake run
+// production env
+$ rake run ENV=prod</pre>
