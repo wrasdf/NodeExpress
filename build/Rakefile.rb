@@ -10,6 +10,7 @@ task :run do
     Rake::Task["launch"].invoke
   end
   if env == "prod"
+  	env = "production"
     Rake::Task["clean"].invoke
     Rake::Task["compile"].invoke
     Rake::Task["test"].invoke
