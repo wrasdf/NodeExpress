@@ -1,20 +1,21 @@
-require "build.rb"
+require "./build.rb"
+env="development"
 
-task :dev => [:setDevEnv,:launch]
+task :default => [:launch]
 
-task :prod => [:setProdEnv,:clean,:compile,:test,:launch]
-
-task :setDevEnv do
-	puts "==================================================="
-	Build.set_development_env
-	puts "Set env is development"
+task :prod => [:clean,:compile,:test,:launch] do
+  env = "production"
 end
 
-task :setProdEnv do
-	puts "==================================================="
-	Build.set_production_env
-	puts "Set env is production"
+task :run do
+  env = ENV['ENV']
+  if env == nil || env == "development"
+    Rake::Task["default"].invoke
+  else
+    Rake::Task["prod"].invoke
+  end
 end
+
 
 task :test do
 	puts "==================================================="
@@ -37,9 +38,10 @@ end
 
 task :launch do
 	puts "==================================================="
-	puts "The task of launch is finished."
-	Build.lanuch_app
+  puts "The app will launch"
+	Build.lanuch_app env
 end
+
 
 
 
